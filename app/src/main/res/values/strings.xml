@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Easy Play</string>
+    <string name="applogo">App Logo</string>
+    <string name="splashTopic">Music Player</string>
+    <string name="splashsubtopic">We Close To Your Heart Beat</string>
+
+
+    <!--    Strings for On board Screen-->
+
+    <!--    Titles-->
+    <string name="first_slide_title">Listen To Music Easily</string>
+    <string name="second_slide_title">Compatible To Every Phone</string>
+    <string name="third_slide_title">User Friendly Interface</string>
+
+    <!--    Descriptions-->
+    <string name="first_slide_desc">You can Listen to every music in your storage using one app. We will List down all music Song name vice as well as Album vice</string>
+    <string name="second_slide_desc">App is Compatible to almost every android versions. Everyone can Download and enjoy Music with us.</string>
+    <string name="third_slide_desc">Our main goal is user satisfaction. For full user experience we use simple user friendly Interfaces</string>
+
+    <!--    Buttons-->
+    <string name="skip_btn">Skip</string>
+    <string name="next_btn">Next</string>
+    <string name="let_get_started">Lets Get Started</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="musicplay">Now Playing</string>
+
+</resources>
