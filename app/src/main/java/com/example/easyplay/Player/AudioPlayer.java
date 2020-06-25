@@ -31,7 +31,7 @@ public class AudioPlayer extends AppCompatActivity {
 
     public static final int REQUEST_CODE = 1;
     static ArrayList<MusicFiles> musicFiles;
-
+    static boolean shuffleBoolean = false, repeatBoolean = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -119,7 +119,8 @@ public class AudioPlayer extends AppCompatActivity {
                 MediaStore.Audio.Media.TITLE,
                 MediaStore.Audio.Media.DURATION,
                 MediaStore.Audio.Media.DATA,
-                MediaStore.Audio.Media.ARTIST
+                MediaStore.Audio.Media.ARTIST,
+                MediaStore.Audio.Media._ID
         };
         Cursor cursor = context.getContentResolver().query(uri,projection,null,null,null);
         if(cursor != null){
@@ -129,8 +130,9 @@ public class AudioPlayer extends AppCompatActivity {
                 String duration = cursor.getString(2);
                 String path = cursor.getString(3);
                 String artist = cursor.getString(4);
+                String id = cursor.getString(5);
 
-                MusicFiles musicFiles = new MusicFiles(path,title,artist,album,duration);
+                MusicFiles musicFiles = new MusicFiles(path,title,artist,album,duration,id);
                 tempAudioList.add(musicFiles);
 
             }
