@@ -3,6 +3,7 @@ package com.example.easyplay.Player;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -17,10 +18,17 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.easyplay.Adapter.MusicAdapter;
 import com.example.easyplay.Models.MusicFiles;
 import com.example.easyplay.R;
 import com.google.android.material.tabs.TabLayout;
@@ -32,15 +40,20 @@ public class AudioPlayer extends AppCompatActivity {
     public static final int REQUEST_CODE = 1;
     static ArrayList<MusicFiles> musicFiles;
     static boolean shuffleBoolean = false, repeatBoolean = false;
+    EditText searchText;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_audio_player);
         permission();
 
 
+
     }
+
+
 
     private void permission() {
         if(ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED){
@@ -77,6 +90,8 @@ public class AudioPlayer extends AppCompatActivity {
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
     }
+
+
 
     public static class ViewPagerAdapter extends FragmentPagerAdapter{
 

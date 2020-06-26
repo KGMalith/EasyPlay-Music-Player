@@ -2,16 +2,24 @@ package com.example.easyplay.Player;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.easyplay.Adapter.MusicAdapter;
+import com.example.easyplay.Models.MusicFiles;
 import com.example.easyplay.R;
+
+import java.util.ArrayList;
 
 import static com.example.easyplay.Player.AudioPlayer.musicFiles;
 
@@ -20,7 +28,7 @@ import static com.example.easyplay.Player.AudioPlayer.musicFiles;
  * Use the {@link SongsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SongsFragment extends Fragment {
+public class SongsFragment extends Fragment{
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -81,4 +89,12 @@ public class SongsFragment extends Fragment {
         }
         return view;
     }
+
+
+
+
+
+
+
+
 }
