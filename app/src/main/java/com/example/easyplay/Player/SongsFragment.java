@@ -28,7 +28,7 @@ import static com.example.easyplay.Player.AudioPlayer.musicFiles;
  * Use the {@link SongsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SongsFragment extends Fragment{
+public class SongsFragment extends Fragment implements SearchView.OnQueryTextListener{
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -66,6 +66,7 @@ public class SongsFragment extends Fragment{
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
@@ -88,6 +89,34 @@ public class SongsFragment extends Fragment{
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.VERTICAL,false));
         }
         return view;
+    }
+
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.search_menu,menu);
+        MenuItem menuItem = menu.findItem(R.id.search_menu);
+        SearchView searchView = (SearchView) menuItem.getActionView();
+        searchView.setOnQueryTextListener(this);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        String input = newText.toLowerCase();
+        ArrayList<MusicFiles> arrayList = new ArrayList<>();
+        for(MusicFiles musicFiles:musicFiles){
+            if(musicFiles.getTitle().toLowerCase().contains(input)){
+                arrayList.add(musicFiles);
+            }
+        }
+        musicAdapter.searchedItem(arrayList);
+        return false;
     }
 
 

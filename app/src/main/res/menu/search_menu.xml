@@ -6,6 +6,6 @@
         android:title="Search"
         android:id="@+id/search_menu"
         android:icon="@drawable/ic_search"
-        app:showAsAction="ifRoom"
+        app:showAsAction="always"
         app:actionViewClass="androidx.appcompat.widget.SearchView" />
 </menu>

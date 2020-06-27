@@ -129,4 +129,10 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MyViewHolder
          retriever.release();
          return art;
      }
+
+     public void searchedItem(ArrayList<MusicFiles> arrayList){
+         mFiles = new ArrayList<>();
+         mFiles.addAll(arrayList);
+         notifyDataSetChanged();
+     }
 }

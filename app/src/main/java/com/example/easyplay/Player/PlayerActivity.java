@@ -63,7 +63,6 @@ public class PlayerActivity extends AppCompatActivity implements Playable, Media
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
             createChannel();
             registerReceiver(broadcastReceiver,new IntentFilter("TRACKS_TRACKS"));

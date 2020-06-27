@@ -2,6 +2,7 @@ package com.example.easyplay.Player;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.core.app.ActivityCompat;
@@ -40,17 +41,18 @@ public class AudioPlayer extends AppCompatActivity {
     public static final int REQUEST_CODE = 1;
     static ArrayList<MusicFiles> musicFiles;
     static boolean shuffleBoolean = false, repeatBoolean = false;
-    EditText searchText;
+    MusicAdapter musicAdapter;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_audio_player);
+        musicAdapter = new MusicAdapter(this,musicFiles);
         permission();
 
-
-
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.action_bar_layout);
     }
 
 
@@ -90,6 +92,7 @@ public class AudioPlayer extends AppCompatActivity {
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
     }
+
 
 
 
@@ -155,4 +158,6 @@ public class AudioPlayer extends AppCompatActivity {
         }
         return tempAudioList;
     }
+
+
 }
